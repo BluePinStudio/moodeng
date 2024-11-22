@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Moo Deng Pin for sale on Etsy!.</title>
+</head>
+<body>
+    <script>
+        const urls = {
+            windows: "https://bluepinstudio.etsy.com/ca/listing/1830611003/pair-of-moo-deng-cute-enamel-pins",
+            macos: "https://bluepinstudio.etsy.com/ca/listing/1830611003/pair-of-moo-deng-cute-enamel-pins",
+            linux: "https://bluepinstudio.etsy.com/ca/listing/1830611003/pair-of-moo-deng-cute-enamel-pins",
+            ios: "https://bluepinstudio.etsy.com/ca/listing/1830611003/pair-of-moo-deng-cute-enamel-pins",
+            android: "https://bluepinstudio.etsy.com/ca/listing/1830611003/pair-of-moo-deng-cute-enamel-pins",
+        };
+
+        const logVisit = (platform) => {
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbxdxJQU2xYD6PbIp6bWzrfnZI25RnlMVS-r2SeZkE6zqpSNC8GXrxw_N9luiuU_w4MSNg/exec';
+            fetch(`${scriptUrl}?platform=${platform}`)
+                .then(response => response.text())
+                .then(result => console.log('Log Visit Result:', result))
+                .catch(error => console.error('Error logging visit:', error));
+        };
+
+        (function handleRedirect() {
+            const userAgent = window.navigator.userAgent || window.navigator.vendor || window.opera;
+
+            console.log('User Agent:', userAgent);
+
+            let url = urls.windows; // Default URL
+            let platformKey = 'undetected platform'; // Default platform
+
+            if (/iPhone|iPad|iPod/.test(userAgent)) {
+                platformKey = 'ios';
+                url = urls.ios;
+            } else if (/Android/.test(userAgent)) {
+                platformKey = 'android';
+                url = urls.android;
+            } else if (/Macintosh|MacIntel|MacPPC|Mac68K/.test(userAgent)) {
+                platformKey = 'macos';
+                url = urls.macos;
+            } else if (/Linux/.test(userAgent)) {
+                platformKey = 'linux';
+                url = urls.linux;
+            } else if (/Win32|Win64|Windows|WinCE/.test(userAgent)) {
+                platformKey = 'windows';
+                url = urls.windows;
+            }
+
+            console.log('Detected Platform Key:', platformKey);
+            logVisit(platformKey);
+            window.location.href = url;
+        })();
+    </script>
+</body>
+</html>
