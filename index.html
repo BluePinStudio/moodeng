@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cute Moo Deng Pin for sale on Etsy!.</title>
+        <meta charset="UTF-8">
+        <title>Cute Moo Deng Pin for Sale on Etsy!</title>
+        <!-- Open Graph meta tags -->
+        <meta property="og:title" content="Cute Moo Deng Pin for Sale on Etsy!" />
+        <meta property="og:description" content="Check out this adorable Moo Deng enamel pin, available now on Etsy!" />
+        <!-- Replace 'moodengpin.com' with your actual domain and 'MooDeng2.jpg' with your actual image file name and extension -->
+        <meta property="og:image" content="https://moodengpin.com/MooDeng2.png" />
+        <meta property="og:url" content="https://moodengpin.com/index.html" />
+        <meta property="og:type" content="website" />
+        <!-- Twitter Card meta tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Cute Moo Deng Pin for Sale on Etsy!">
+        <meta name="twitter:description" content="Check out this adorable Moo Deng enamel pin, available now on Etsy!">
+        <meta name="twitter:image" content="https://moodengpin.com/MooDeng2.jpg">
+        <!-- Viewport meta tag -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <script>
@@ -50,7 +63,11 @@
 
             console.log('Detected Platform Key:', platformKey);
             logVisit(platformKey);
-            window.location.href = url;
+
+            // Delay the redirect by 1 second to allow crawlers to read meta tags
+            setTimeout(() => {
+                window.location.href = url;
+            }, 1000);
         })();
     </script>
 </body>
